@@ -1,0 +1,94 @@
+root@ubuntu:~/pertemuan-04$ cat hasil.txt
+    1  cat /etc/os-release
+    2  docker version
+    3  apt update
+    4  apt install -y docker.io
+    5  docker version
+    6  docker info | head -20
+    7  docker run hello-world
+    8  docker images
+    9  docker ps
+   10  docker ps -a
+   11  cat /etc/os-release | head -2
+   12  uname -r
+   13  docker run -it --rm alpine sh
+   14  docker run -d --name web -p 8080:80 nginx
+   15  docker ps
+   16  curl -I localhost:8080
+   17  docker ps
+   18  CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS              PORTS                                     NAMES
+   19  69bb01e604c0   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   web
+   20  root@ubuntu:~$ 
+   21  docker exec web sh -c 'echo "<h1>Container Nginx - NIM 12345</h1>" >
+
+/usr/share/nginx/html/index.html'
+   22  curl localhost:8080
+   23  docker exec -it web bash
+   24  docker logs web
+   25  docker logs --tail 5 web
+   26  docker stats --no-stream
+   27  docker inspect web | grep -i ipaddress
+   28  var/log/nginx/access.log
+   29  docker stop web
+   30  docker ps
+   31  docker ps -a
+   32  docker start web
+   33  curl localhost:808
+   34  docker rm -f web
+   35  docker run -d --name web -p 8080:80 nginx
+   36  curl localhost:8080
+   37  docker run -d --name web-alpine -p 8081:80 nginx:alpine
+   38  docker run -d --name web-lama -p 8082:80 nginx:1.26
+   39  docker ps
+   40  docker images
+   41  curl -sI localhost:8081 | grep Server
+   42  curl -sI localhost:8082 | grep Server
+   43  history > /root/riwayat.txt
+   44  cat /root/riwayat.txt
+   45  docker ps -a
+   46  docker images
+   47  docker rm -f $(docker ps -aq)
+   48  mkdir -p ~/pertemuan-04
+   49  cd ~/pertemuan-04
+   50  history > hasil.txt
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+alpine:latest        3ea06e4cb95e       8.43MB             0B        
+hello-world:latest   e2ac70e7319a       10.1kB             0B        
+nginx:1.26           64e5ac93d424        192MB             0B        
+nginx:alpine         7cac34a4d72b         63MB             0B        
+nginx:latest         c05939e13a61        163MB             0B        
+=== VERSI DOCKER ===
+Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2
+=== OS HOST ===
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.5 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+=== KERNEL HOST ===
+6.8.0-147-generic
+root@ubuntu:~/pertemuan-04$ cat /etc/os-release
+uname -r
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.5 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+6.8.0-147-generic
